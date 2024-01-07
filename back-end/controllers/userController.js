@@ -128,7 +128,10 @@ const handleRegister = async (req, res) => {
 
 const updateInfoUser = async (req, res) => {
   const user = await User.findById(req.user.id);
-  const checkUser = await User.findOne({ phone: req.body.phone });
+  const checkUser = await User.findOne({
+    phone: req.body.phone,
+    _id: { $ne: req.user.id },
+  });
   if (checkUser) {
     return res
       .status(400)
