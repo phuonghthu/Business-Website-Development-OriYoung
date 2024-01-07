@@ -1,7 +1,7 @@
 {
-  "name": "skin-food-shop",
+  "name": "oriyoung",
   "version": "1.0.0",
-  "description": "31/12 submit",
+  "description": "business-website-development",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
