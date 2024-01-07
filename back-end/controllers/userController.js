@@ -109,7 +109,7 @@ const handleRegister = async (req, res) => {
     });
     if (inputType === "email") {
       user.email = phone;
-      user.phone = `user_${number}`;
+      user.phone = `Chưa cập nhật`;
     }
     if (inputType === "phone") {
       user.phone = phone;
