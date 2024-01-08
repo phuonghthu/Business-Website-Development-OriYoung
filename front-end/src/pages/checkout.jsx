@@ -27,7 +27,7 @@ const Checkout = () => {
   const { mutate } = useCheckout();
 
   const totalPrice = (data?.data ?? []).reduce((total, current) => {
-    return (total += current.capacityPrice);
+    return (total += current.capacityPrice*current.quantity);
   }, 0);
 
   const onCheckout = () => {
@@ -122,11 +122,11 @@ const Checkout = () => {
                       />
                       <div>
                         <p className="font-semibold text-lg">
-                          {item.productInfo.name}
+                          {item.productInfo.name}  x{item.quantity}
                         </p>
                         {/* <div className="text-base">Biến thể</div> */}
                         <div className="text-lg font-bold">
-                          {formatPriceVND(item.capacityPrice)}
+                          {formatPriceVND(item.capacityPrice * item.quantity)}
                         </div>
                         {/* <div className="text-sm text-gray-400 line-through">
                           215.000 ₫{" "}
