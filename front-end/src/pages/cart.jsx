@@ -67,9 +67,10 @@ const Cart = () => {
       {context}
       <Header />
       <Navbar />
+
       <div className="container mx-auto">
         <div>
-          <div className="px-4">
+          <div className="px-4 lg:px-[4rem] xl:px-0">
             <Breadcrumb
               separator=">"
               items={[
@@ -201,7 +202,7 @@ const Cart = () => {
                 )}
               />
             </div>
-            <div className="min-w-[300px] mx-5">
+            <div className="min-w-[300px] px-4 lg:px-[4rem] xl:px-0">
               <h3>
                 Thông tin đơn hàng{" "}
               </h3>
@@ -261,7 +262,7 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-items justify-center lg:justify-start gap-4 mb-10">
+        <div className="flex flex-items justify-center lg:justify-start px-4 lg:px-[4rem] xl:px-0 gap-4 mb-10">
           <Input
             size="large"
             placeholder="Nhập mã giảm giá"

@@ -9,7 +9,7 @@ const Contact = () => {
       <Header />
       <Navbar />
       <div className="container mx-auto">
-        <div className="bt-form-contact-simple flex flex-col md:flex-row">
+        <div className="bt-form-contact-simple flex flex-col md:flex-row lg:px-[4rem] xl:px-0">
           <div className="contact-item">
             <h2 className="contact-title">
               Liên hệ với chúng tôi

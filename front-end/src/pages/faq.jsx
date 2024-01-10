@@ -7,7 +7,9 @@ const Faq = () => {
     <div>
       <Header />
       <Navbar />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
+        <div className="lg:px-[4rem] xl:px-0">
+
         <h1 className="text-3xl font-bold mb-6 mt-6">
           Câu hỏi thường gặp khi mua sắm tại OriYoung
         </h1>
@@ -138,6 +140,7 @@ const Faq = () => {
           </div>
         </div>
       </div>
+        </div>
       <Footer />
     </div>
   );

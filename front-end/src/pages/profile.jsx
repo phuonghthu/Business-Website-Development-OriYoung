@@ -104,7 +104,7 @@ const Profile = () => {
       <Header />
       <Navbar />
       <div className="container mx-auto">
-        <div className="p-2 rounded bg-[#F9FBF6] mb-6 mx-4 md:mx-0">
+        <div className="p-2 rounded bg-[#F9FBF6] mb-6 lg:px-[4rem] xl:px-0">
           <Breadcrumb
             items={[
               {

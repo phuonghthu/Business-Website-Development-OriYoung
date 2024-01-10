@@ -56,7 +56,7 @@ const Checkout = () => {
       <Navbar />
       <Form form={form} size="large">
         <div className="container mx-auto">
-          <div className="flex gap-8 flex-col-reverse md:flex-row overflow-hidden mx-4 md:mx-0">
+          <div className="flex gap-8 flex-col-reverse md:flex-row overflow-hidden mx-4 md:mx-[4rem]">
             <div className="flex-grow">
               <p className="font-bold text-3xl mb-6">
                 Hi, {profile.data.name}

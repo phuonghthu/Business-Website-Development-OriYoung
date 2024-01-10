@@ -8,7 +8,7 @@ const PrivatePolicy = () => {
       <Header />
       <Navbar />
       <div className="container mx-auto">
-        <div className="mx-4 md:mx-0">
+        <div className="lg:px-[4rem] xl:px-0">
           <h1 className="font-bold text-4xl mb-6">
             Chính sách bảo mật thông tin
             cá nhân

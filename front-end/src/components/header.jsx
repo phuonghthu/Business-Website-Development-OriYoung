@@ -213,7 +213,7 @@ const Header = () => {
     <>
       <header className="sticky md:static top-0 bg-white z-50 container mx-auto flex items-center h-[84px] justify-between px-4 sm:px-6 lg:px-8 border-b border-primary-color">
         {contextHolder}
-        <div className="md:hidden min-w-[104px]">
+        <div className="md:hidden min-w-[104px] -translate-x-[20px]">
           <Button
             type="ghost"
             onClick={showDrawer}
@@ -365,11 +365,11 @@ const Header = () => {
             />
           </div>
           <div className="flex justify-end md:gap-5 min-w-[104px]">
-            <div className="cursor-pointer h-[48px] w-[48px]  rounded-full text-primary-color md:text-white md:bg-primary-color flex items-center justify-center">
+            <div className="cursor-pointer h-[48px] w-[48px] translate-x-[8px] md:translate-x-0 rounded-full text-primary-color md:text-white md:bg-primary-color flex items-center justify-center">
               <HeartIcon />
             </div>
             <CartWrapper>
-              <div className="cursor-pointer h-[48px] w-[48px]  rounded-full text-primary-color md:text-white md:bg-primary-color flex items-center justify-center">
+              <div className="cursor-pointer h-[48px] w-[48px] translate-x-[8px] md:translate-x-0 rounded-full text-primary-color md:text-white md:bg-primary-color flex items-center justify-center">
                 <ShoppingCartIcon
                   onClick={onCartClick}
                 />
@@ -413,16 +413,14 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <div className="flex md:hidden w-full justify-center py-3">
+      <div className="flex md:hidden justify-center py-3 mx-4 sm:mx-12">
         <AutoComplete
           value={search}
           onChange={onSearch}
           size="large"
           style={{
-            width: 380,
-            marginRight: "1rem",
-            marginLeft: "1rem",
-          }}
+            width: "100%",
+                }}
           placeholder="Freeship đơn hàng từ 199K"
           options={completedOptions}
           onSelect={onSelect}

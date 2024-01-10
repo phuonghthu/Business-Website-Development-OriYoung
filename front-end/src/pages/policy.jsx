@@ -11,7 +11,7 @@ const Policy = () => {
         <h1 className="font-bold text-4xl text-center my-6">
           Chính sách đổi trả
         </h1>
-        <div className="flex flex-col md:grid md:grid-cols-2 items-center gap-4 mx-4 md:mx-0">
+        <div className="flex flex-col md:grid md:grid-cols-2 items-center gap-4 mx-4 lg:px-[4rem] xl:px-0">
           <div className="min-w-[50%]">
             <img
               src="/images/policy-img-1.png"

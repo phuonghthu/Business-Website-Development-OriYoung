@@ -129,7 +129,7 @@ const ProductDetail = () => {
       <Navbar />
       <div className="container md:mx-auto">
         <div className="w-full">
-          <div className="w-full p-2 bg-[#F9FBF6] rounded-lg mb-6 px-3 md:px-0">
+          <div className="w-full p-2 bg-[#F9FBF6] rounded-lg mb-6 px-3 lg:px-[4rem] xl:px-0">
             <Breadcrumb
               items={[
                 {
@@ -155,7 +155,7 @@ const ProductDetail = () => {
               ]}
             />
           </div>
-          <div className="p-2 grid grid-cols-3 gap-6 mx-2">
+          <div className="p-2 grid grid-cols-3 gap-6 mx-2 lg:mx-10">
             <div className="col-span-3 md:col-span-1">
               <img
                 src={data.data.image}
@@ -337,12 +337,12 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          <div className="p-2 bg-[#F9FBF6] rounded-lg mb-4 mt-10 mx-2 md:mx-0">
+          <div className="p-2 bg-[#F9FBF6] rounded-lg mb-4 mt-10 mx-2 lg:px-[4rem] xl:px-0">
             <div className="bg-primary-color p-2 inline-block rounded-full text-white text-sm">
               Mô tả
             </div>
           </div>
-          <div className="p-2 bg-[#F9FBF6] rounded-lg mb-10 w-full pr-[18px] pl-[10px]">
+          <div className="p-2 bg-[#F9FBF6] rounded-lg mb-10 w-full lg:px-[4rem] xl:px-0 pr-[18px] pl-[10px]">
             <div
               className="min-w-full prose lg:prose-xl"
               dangerouslySetInnerHTML={{
