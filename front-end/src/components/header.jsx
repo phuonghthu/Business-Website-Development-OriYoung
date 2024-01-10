@@ -235,7 +235,7 @@ const Header = () => {
               <Space>
                 <img
                   className="w-[230px] h-[90px]"
-                  src="../../public/images/logo-white.png"
+                  src="/images/logo-white.png"
                   alt="Logo"
                 />
               </Space>
