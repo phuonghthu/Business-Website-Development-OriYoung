@@ -8,8 +8,8 @@ const Tips = () => {
     <div>
       <Header />
       <Navbar />
-      <div className="container mx-auto my-10">
-        <div className="p-2 bg-primary-color text-white text-3xl rounded-xl text-center mb-10">
+      <div className="container md:mx-auto my-10">
+        <div className="p-2 bg-primary-color text-white text-3xl rounded-xl text-center mb-10 mx-4 md:mx-0">
           Beauty Tips
         </div>
         <CardTipList />

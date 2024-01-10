@@ -13,3 +13,13 @@ body {
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
 }
+
+.ant-collapse-header-text {
+  color: white;
+}
+.ant-collapse-expand-icon {
+  color: white;
+}
+.anticon-close {
+  color: white;
+}

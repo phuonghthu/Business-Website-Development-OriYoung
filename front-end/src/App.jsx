@@ -1,4 +1,7 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import { ConfigProvider } from "antd";
 import { StyleProvider } from "@ant-design/cssinjs";
 
@@ -14,7 +17,10 @@ import AdminLayout from "./components/layouts/admin-layout";
 import Categories from "./pages/admin/categories";
 import Users from "./pages/admin/users";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AdminSignIn from "./pages/admin/admin-sign-in";
 import AdminSignUp from "./pages/admin/admin-sign-up";
@@ -141,16 +147,25 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider
+      client={queryClient}
+    >
       <ConfigProvider
         theme={{
           token: {
             colorPrimary: "#84BC4E",
           },
+          components: {
+            Collapse: {
+              contentBg: "#84BC4E",
+            },
+          },
         }}
       >
         <StyleProvider hashPriority="high">
-          <RouterProvider router={router} />
+          <RouterProvider
+            router={router}
+          />
           <ReactQueryDevtools
             initialIsOpen={false}
             buttonPosition="bottom-left"

@@ -9,10 +9,15 @@ const Contact = () => {
       <Header />
       <Navbar />
       <div className="container mx-auto">
-        <div className="bt-form-contact-simple">
+        <div className="bt-form-contact-simple flex flex-col md:flex-row">
           <div className="contact-item">
-            <h2 className="contact-title">Liên hệ với chúng tôi</h2>
-            <form className="form" autoComplete="off">
+            <h2 className="contact-title">
+              Liên hệ với chúng tôi
+            </h2>
+            <form
+              className="form"
+              autoComplete="off"
+            >
               <div className="form-group-wrap">
                 <div className="form-group">
                   <input
@@ -90,7 +95,9 @@ const Contact = () => {
             </form>
           </div>
           <div className="contact-item">
-            <h2 className="contact-title">Thông tin</h2>
+            <h2 className="contact-title">
+              Thông tin
+            </h2>
             {/* <p className="desc-info">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore
               aliquid amet
@@ -115,7 +122,9 @@ const Contact = () => {
                 </span>
                 <p className="info-text">
                   <span>Địa chỉ:</span>
-                  669 QL1A, khu phố 3, Thủ Đức, Thành phố Hồ Chí Minh
+                  669 QL1A, khu phố 3,
+                  Thủ Đức, Thành phố Hồ
+                  Chí Minh
                 </p>
               </li>
               <li className="info-item">
@@ -135,13 +144,19 @@ const Contact = () => {
                     </g>
                     <defs>
                       <clipPath id="clip0_1_27">
-                        <rect width="24" height="24" fill="currentColor"></rect>
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="currentColor"
+                        ></rect>
                       </clipPath>
                     </defs>
                   </svg>
                 </span>
                 <p className="info-text">
-                  <span>Số điện thoại:</span>
+                  <span>
+                    Số điện thoại:
+                  </span>
                   0987654321
                 </p>
               </li>

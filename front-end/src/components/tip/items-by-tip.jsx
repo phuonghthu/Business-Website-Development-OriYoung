@@ -9,7 +9,7 @@ const ItemsByTip = () => {
         <div className="flex items-center justify-center">
           <Link
             to="/tips"
-            className="text-center text-5xl font-bold text-t-red mb-8"
+            className="text-center text-3xl md:text-5xl font-bold text-t-red mb-8"
           >
             Beauty Tips
           </Link>

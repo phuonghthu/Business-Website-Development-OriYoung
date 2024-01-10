@@ -2,7 +2,7 @@ import CardTipItem from "./card-tip-item";
 
 const CardTipList = () => {
   return (
-    <div className="gap-6 container mx-auto grid grid-cols-3 items-stretch">
+    <div className="gap-6 md:mx-auto grid lg:grid-cols-2 xl:grid-cols-3 items-stretch mx-4">
       <CardTipItem
         title="Thoa kem chống nắng đúng cách"
         description="Thoa kem chống nắng đúng cách là một bước quan trọng để bảo vệ da khỏi tác động của tia UV."

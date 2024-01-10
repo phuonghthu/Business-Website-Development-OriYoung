@@ -1,4 +1,13 @@
-import { Form, Row, Col, Input, Button, Spin, message, Select } from "antd";
+import {
+  Form,
+  Row,
+  Col,
+  Input,
+  Button,
+  Spin,
+  message,
+  Select,
+} from "antd";
 import { ArrowLeftSquareIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../hooks/use-product";
@@ -8,17 +17,23 @@ import MarkdownEditor from "../../components/markdown-editor";
 import { useCategories } from "../../hooks/use-categories";
 import UploadImage from "../../components/upload-image";
 import { useState } from "react";
+import Loading from "../../components/loading";
 
 const EditProduct = () => {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
-  const [messageApi, contextHolder] = message.useMessage();
-  const [description, setDescription] = useState("");
+  const [messageApi, contextHolder] =
+    message.useMessage();
+  const [description, setDescription] =
+    useState("");
 
-  const { data, isLoading } = useProduct();
-  const { data: { data: categories } = {}, isLoading: isCategoriesLoading } =
-    useCategories();
+  const { data, isLoading } =
+    useProduct();
+  const {
+    data: { data: categories } = {},
+    isLoading: isCategoriesLoading,
+  } = useCategories();
 
   const { mutate } = useUpdateProduct();
 
@@ -27,23 +42,37 @@ const EditProduct = () => {
       const updateFields = {
         ...{
           capacity: data.data.capacity,
-          description: data.data.description,
+          description:
+            data.data.description,
           name: data.data.name,
           price: data.data.price,
-          productCode: data.data.productCode,
+          productCode:
+            data.data.productCode,
           quantity: data.data.quantity,
-          categoryName: data.data.categoryName,
+          categoryName:
+            data.data.categoryName,
           image: data.data.image,
           productId: data.data._id,
         },
         ...values,
-        description: description || data.data.description,
+        description:
+          description ||
+          data.data.description,
       };
 
-      if (values?.image?.length > 0 && !(typeof values.image === "string")) {
+      if (
+        values?.image?.length > 0 &&
+        !(
+          typeof values.image ===
+          "string"
+        )
+      ) {
         const formData = new FormData();
         values.image.forEach((file) => {
-          formData.append("image", file);
+          formData.append(
+            "image",
+            file
+          );
         });
         const res = await fetch(
           "https://skin-food-store.onrender.com/api/product/upload-image",
@@ -52,34 +81,48 @@ const EditProduct = () => {
             body: formData,
           }
         );
-        const response = await res.json();
-        updateFields.image = response.data;
+        const response =
+          await res.json();
+        updateFields.image =
+          response.data;
       }
 
       mutate(updateFields, {
         onSuccess() {
-          messageApi.success("Cập nhật thành công");
-          queryClient.invalidateQueries({ queryKey: ["products"] });
+          messageApi.success(
+            "Cập nhật thành công"
+          );
+          queryClient.invalidateQueries(
+            { queryKey: ["products"] }
+          );
           navigate(-1);
         },
         onError() {
-          messageApi.error("Cập nhật thất bại");
+          messageApi.error(
+            "Cập nhật thất bại"
+          );
         },
       });
     } catch (error) {
       console.log(error.message);
     }
   };
-  const onValuesChange = (updateFields) => {
+  const onValuesChange = (
+    updateFields
+  ) => {
     if (
       updateFields?.description &&
-      typeof updateFields?.description === "string"
+      typeof updateFields?.description ===
+        "string"
     ) {
-      setDescription(updateFields.description);
+      setDescription(
+        updateFields.description
+      );
     }
   };
 
-  if (isLoading || isCategoriesLoading) return <div>Loading...</div>;
+  if (isLoading || isCategoriesLoading)
+    return <Loading />;
 
   return (
     <Spin spinning={false}>
@@ -91,7 +134,9 @@ const EditProduct = () => {
           size={36}
           onClick={() => navigate(-1)}
         />
-        <span className="font-bold text-2xl">Chỉnh sửa sản phẩm mới</span>
+        <span className="font-bold text-2xl">
+          Chỉnh sửa sản phẩm mới
+        </span>
       </div>
       <Form
         form={form}
@@ -105,14 +150,22 @@ const EditProduct = () => {
           <div className="border border-primary-color rounded p-4">
             <Row gutter={[28, 0]}>
               <Col span={24}>
-                <Form.Item label="Tên sản phẩm" name="name">
+                <Form.Item
+                  label="Tên sản phẩm"
+                  name="name"
+                >
                   <Input />
                 </Form.Item>
               </Col>
               <Col span={12}>
-                <Form.Item label="Danh mục" name="categoryName">
+                <Form.Item
+                  label="Danh mục"
+                  name="categoryName"
+                >
                   <Select
-                    options={(categories ?? []).map((i) => ({
+                    options={(
+                      categories ?? []
+                    ).map((i) => ({
                       label: i.name,
                       value: i.name,
                     }))}
@@ -120,27 +173,42 @@ const EditProduct = () => {
                 </Form.Item>
               </Col>
               <Col span={12}>
-                <Form.Item label="Giá" name="price">
+                <Form.Item
+                  label="Giá"
+                  name="price"
+                >
                   <Input />
                 </Form.Item>
               </Col>
               <Col span={8}>
-                <Form.Item label="Dung tích" name="capacity">
+                <Form.Item
+                  label="Dung tích"
+                  name="capacity"
+                >
                   <Input />
                 </Form.Item>
               </Col>
               <Col span={8}>
-                <Form.Item label="SKU" name="productCode">
+                <Form.Item
+                  label="SKU"
+                  name="productCode"
+                >
                   <Input />
                 </Form.Item>
               </Col>
               <Col span={8}>
-                <Form.Item label="Số lượng" name="quantity">
+                <Form.Item
+                  label="Số lượng"
+                  name="quantity"
+                >
                   <Input />
                 </Form.Item>
               </Col>
               <Col span={24}>
-                <Form.Item label="Mô tả" name="description">
+                <Form.Item
+                  label="Mô tả"
+                  name="description"
+                >
                   <MarkdownEditor />
                 </Form.Item>
               </Col>
@@ -150,7 +218,11 @@ const EditProduct = () => {
             <Form.Item
               name="image"
               rules={[
-                { required: true, message: "Không được để trống trường này!" },
+                {
+                  required: true,
+                  message:
+                    "Không được để trống trường này!",
+                },
               ]}
             >
               <UploadImage />
@@ -174,8 +246,19 @@ const EditProduct = () => {
           </div>
         </div>
         <div className="flex justify-end gap-4">
-          <Button onClick={() => navigate("/admin/products")}>Huỷ</Button>
-          <Button htmlType="submit" type="primary">
+          <Button
+            onClick={() =>
+              navigate(
+                "/admin/products"
+              )
+            }
+          >
+            Huỷ
+          </Button>
+          <Button
+            htmlType="submit"
+            type="primary"
+          >
             Lưu
           </Button>
         </div>

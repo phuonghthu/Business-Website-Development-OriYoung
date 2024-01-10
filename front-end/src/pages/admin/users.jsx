@@ -1,6 +1,15 @@
-import { Select, Button, Table } from "antd";
-import { PlusOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
+import {
+  Select,
+  Button,
+  Table,
+} from "antd";
+import {
+  PlusOutlined,
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { useUsers } from "../../hooks/use-users";
+import Loading from "../../components/loading";
 
 const columns = [
   {
@@ -37,8 +46,12 @@ const columns = [
     render: () => {
       return (
         <div className="flex items-center justify-between gap-4">
-          <EditOutlined style={{ fontSize: 20 }} />
-          <DeleteOutlined style={{ fontSize: 20 }} />
+          <EditOutlined
+            style={{ fontSize: 20 }}
+          />
+          <DeleteOutlined
+            style={{ fontSize: 20 }}
+          />
         </div>
       );
     },
@@ -46,9 +59,10 @@ const columns = [
 ];
 
 const Users = () => {
-  const { data, isLoading } = useUsers();
+  const { data, isLoading } =
+    useUsers();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="mt-4">
@@ -65,7 +79,10 @@ const Users = () => {
             },
           ]}
         />
-        <Button type="primary" icon={<PlusOutlined />}>
+        <Button
+          type="primary"
+          icon={<PlusOutlined />}
+        >
           Thêm
         </Button>
       </div>

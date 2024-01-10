@@ -23,7 +23,7 @@ const Categories = () => {
   return (
     <div className="container flex flex-col items-center mx-auto bg-secondary-color mt-4 ">
       <div className="p-6">
-        <h2 className="text-primary-color text-5xl text-center mb-6">
+        <h2 className="text-primary-color text-xl font-semibold md:text-5xl text-center mb-6">
           Young Beauty - Young Society
         </h2>
         <div className="flex items-center gap-8 justify-between ">
@@ -32,16 +32,20 @@ const Categories = () => {
               <div
                 key={item.value}
                 className="flex flex-col items-center gap-2"
-                onClick={() => navigate(`/products?category=${item.value}`)}
+                onClick={() =>
+                  navigate(
+                    `/products?category=${item.value}`
+                  )
+                }
               >
-                <div className="h-[10rem] w-[10rem] min-h-[10rem] min-w-[10rem] bg-gray-300 rounded-full">
+                <div className="h-[80%] w-[80%] md:h-[10rem] md:w-[10rem] bg-gray-300 rounded-full">
                   <img
                     className="rounded-full"
                     src={item.imageUrl}
                     alt={item.label}
                   />
                 </div>
-                <p className="font-bold text-2xl text-primary-color">
+                <p className="font-bold text-sm sm:text-xl md:text-2xl text-primary-color">
                   {item.label}
                 </p>
               </div>

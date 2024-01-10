@@ -1,4 +1,13 @@
-import { Form, Row, Col, Input, Button, message, Spin, Select } from "antd";
+import {
+  Form,
+  Row,
+  Col,
+  Input,
+  Button,
+  message,
+  Spin,
+  Select,
+} from "antd";
 import { ArrowLeftSquareIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useAddProduct } from "../../hooks/use-add-product";
@@ -7,29 +16,42 @@ import MarkdownEditor from "../../components/markdown-editor";
 import UploadImage from "../../components/upload-image";
 import { useState } from "react";
 import { useCategories } from "../../hooks/use-categories";
+import Loading from "../../components/loading";
 
 const CreateProduct = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  const [messageApi, contextHolder] = message.useMessage();
-  const [isLoading, setIsLoading] = useState(false);
-  const [description, setDescription] = useState("");
+  const [messageApi, contextHolder] =
+    message.useMessage();
+  const [isLoading, setIsLoading] =
+    useState(false);
+  const [description, setDescription] =
+    useState("");
 
   const { mutate } = useAddProduct();
 
-  const { data, isLoading: isCategoriesLoading } = useCategories();
+  const {
+    data,
+    isLoading: isCategoriesLoading,
+  } = useCategories();
 
   const onSubmit = async (values) => {
     try {
       const updatedValues = {
-        categoryName: values.categoryName,
+        categoryName:
+          values.categoryName,
         product: {
           name: values.name,
-          price: parseFloat(values.price),
+          price: parseFloat(
+            values.price
+          ),
           capacity: values.capacity,
-          productCode: values.productCode,
-          quantity: parseInt(values.quantity),
+          productCode:
+            values.productCode,
+          quantity: parseInt(
+            values.quantity
+          ),
           description,
         },
       };
@@ -37,7 +59,10 @@ const CreateProduct = () => {
       if (values.image.length > 0) {
         const formData = new FormData();
         values.image.forEach((file) => {
-          formData.append("image", file);
+          formData.append(
+            "image",
+            file
+          );
         });
         const res = await fetch(
           "https://skin-food-store.onrender.com/api/product/upload-image",
@@ -46,8 +71,10 @@ const CreateProduct = () => {
             body: formData,
           }
         );
-        const response = await res.json();
-        updatedValues.product["image"] = response.data;
+        const response =
+          await res.json();
+        updatedValues.product["image"] =
+          response.data;
       }
       const formData = new FormData();
       values.image.forEach((file) => {
@@ -55,12 +82,18 @@ const CreateProduct = () => {
       });
       mutate(updatedValues, {
         onSuccess() {
-          messageApi.success("Thêm mới thành công");
-          queryClient.invalidateQueries({ queryKey: ["products"] });
+          messageApi.success(
+            "Thêm mới thành công"
+          );
+          queryClient.invalidateQueries(
+            { queryKey: ["products"] }
+          );
           navigate("/admin/products");
         },
         onError() {
-          messageApi.error("Thêm mới thất bại");
+          messageApi.error(
+            "Thêm mới thất bại"
+          );
         },
         onSettled() {
           setIsLoading(false);
@@ -71,16 +104,22 @@ const CreateProduct = () => {
     }
   };
 
-  const onValuesChange = (updateFields) => {
+  const onValuesChange = (
+    updateFields
+  ) => {
     if (
       updateFields?.description &&
-      typeof updateFields?.description === "string"
+      typeof updateFields?.description ===
+        "string"
     ) {
-      setDescription(updateFields.description);
+      setDescription(
+        updateFields.description
+      );
     }
   };
 
-  if (isCategoriesLoading) return <div>Loading...</div>;
+  if (isCategoriesLoading)
+    return <Loading />;
 
   return (
     <Spin spinning={isLoading}>
@@ -92,7 +131,9 @@ const CreateProduct = () => {
           size={36}
           onClick={() => navigate(-1)}
         />
-        <span className="font-bold text-2xl">Thêm sản phẩm mới</span>
+        <span className="font-bold text-2xl">
+          Thêm sản phẩm mới
+        </span>
       </div>
       <Form
         form={form}
@@ -111,7 +152,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -125,12 +167,15 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
                   <Select
-                    options={(data?.data ?? []).map((i) => ({
+                    options={(
+                      data?.data ?? []
+                    ).map((i) => ({
                       label: i.name,
                       value: i.name,
                     }))}
@@ -144,7 +189,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -158,7 +204,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -172,7 +219,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -186,7 +234,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -200,7 +249,8 @@ const CreateProduct = () => {
                   rules={[
                     {
                       required: true,
-                      message: "Không được để trống trường này!",
+                      message:
+                        "Không được để trống trường này!",
                     },
                   ]}
                 >
@@ -214,7 +264,11 @@ const CreateProduct = () => {
             <Form.Item
               name="image"
               rules={[
-                { required: true, message: "Không được để trống trường này!" },
+                {
+                  required: true,
+                  message:
+                    "Không được để trống trường này!",
+                },
               ]}
             >
               <UploadImage />
@@ -222,8 +276,19 @@ const CreateProduct = () => {
           </div>
         </div>
         <div className="flex justify-end gap-4">
-          <Button onClick={() => navigate("/admin/products")}>Huỷ</Button>
-          <Button htmlType="submit" type="primary">
+          <Button
+            onClick={() =>
+              navigate(
+                "/admin/products"
+              )
+            }
+          >
+            Huỷ
+          </Button>
+          <Button
+            htmlType="submit"
+            type="primary"
+          >
             Lưu
           </Button>
         </div>
