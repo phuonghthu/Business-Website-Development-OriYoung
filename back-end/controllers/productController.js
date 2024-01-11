@@ -27,10 +27,10 @@ const upload = multer({ storage: storage });
 const getAllCategories = async (req, res) => {
   try {
     const categories = await Category.find({ isDeleted: false });
-    const products = categories.products.filter(
+    const data = categories.map((category) => {
+      const products = category.products.filter(
         (product) => product.isDeleted === false
       );
-    const data = categories.map((category) => {
       return {
         id: category._id,
         name: category.name,
