@@ -404,7 +404,7 @@ const getProductByCategory = async (req, res) => {
       .filter((product) => product.isDeleted === false)
       .slice((pageIndex - 1) * pageSize, pageIndex * pageSize);
 
-    return res.json(Utils.createSuccessResponseModel(products.length, products));
+    return res.json(Utils.createSuccessResponseModel(totalRecord, products));
   } catch (err) {
     console.log(err);
     return res.status(500).json(Utils.createErrorResponseModel(err.message));
