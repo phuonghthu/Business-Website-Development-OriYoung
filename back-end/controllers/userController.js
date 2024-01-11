@@ -295,7 +295,7 @@ const deleteUser = async (req, res) => {
 
 function checkInput(input) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^(^\+251|^251|^0)?(9|7)\d{8}$/; // This is a very basic international phone number regex
+  const phoneRegex = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g; // This is a very basic international phone number regex
 
   if (emailRegex.test(input)) {
     return "email";
